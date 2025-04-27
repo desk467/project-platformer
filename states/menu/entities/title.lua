@@ -1,0 +1,12 @@
+local font = require('font')
+
+local Title = {}
+
+function Title:draw()
+    love.graphics.setColor(255, 255, 255)
+    love.graphics.setFont(font.get("large"))
+
+    love.graphics.print("Project Platformer", 100, 100)
+end
+
+return Title

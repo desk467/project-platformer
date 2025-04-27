@@ -2,9 +2,9 @@ local font = {}
 local fontPath = 'res/fonts/8bit-operator-plus.ttf'
 
 local sizes = {
-    small   = 18,
-    medium  = 32,
-    large   = 48
+    small   = 14,
+    medium  = 28,
+    large   = 32
 }
 
 function font.get(size_name)

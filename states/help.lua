@@ -1,12 +1,7 @@
 local font = require('font')
 
 local Help = {}
-local help_text = "use arrows [<-] and [->] to move the character.\npress [spacebar] to jump.\ncollect all coins and reach the goal."
-
-function Help:load()
-    -- Inicializa recursos do estado
-end
-
+local help_text = "use [<-] and [->] to move.\npress [spacebar] to jump.\ncollect all coins and reach the goal."
 
 function Help:draw()
     love.graphics.setBackgroundColor({255, 255, 255})
@@ -19,11 +14,7 @@ function Help:draw()
     love.graphics.print("help", 100, 100)
 
     love.graphics.setFont(font.get("medium"))
-    love.graphics.print(help_text, 100, 250)
-end
-
-function Help:update(dt)
-    -- Atualiza lógica do estado
+    love.graphics.print(help_text, 100, 150)
 end
 
 function Help:keypressed(key)
