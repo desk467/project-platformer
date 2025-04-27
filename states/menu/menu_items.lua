@@ -35,8 +35,7 @@ function MenuItems:current()
 end
 
 -- Definir os itens
-MenuItems.items.dialogs  = MenuItem("Dialogs", 0, "menu")
-MenuItems.items.layouts  = MenuItem("Game Layouts", 1, "game")
-MenuItems.items.test_c   = MenuItem("Teste C", 2, "menu")
+MenuItems.items.dialogs  = MenuItem("Play", 0, "game")
+MenuItems.items.layouts  = MenuItem("Help", 1, "help")
 
 return MenuItems

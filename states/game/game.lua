@@ -5,7 +5,8 @@ function Game:load()
 end
 
 function Game:draw()
-    love.graphics.setBackgroundColor({0, 255, 0})
+    love.graphics.setBackgroundColor({255, 255, 255})
+    love.graphics.setColor(0, 0, 0)
 end
 
 function Game:update(dt)

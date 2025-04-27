@@ -5,7 +5,8 @@ local state
 function love.load()
     state = GameState.new({
         menu = require('states.menu'),
-        game = require('states.game')
+        game = require('states.game'),
+        help = require('states.help')
     }, "menu")
 end
 

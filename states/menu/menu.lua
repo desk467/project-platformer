@@ -37,7 +37,7 @@ function Menu:keypressed(key)
         MenuItems.selected = (MenuItems.selected - 2) % #MenuItems.order + 1
     end
 
-    if key == "space" then
+    if key == "return" then
         self.gamestate:switch(MenuItems:current().state)
     end
 end
