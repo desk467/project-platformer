@@ -33,10 +33,19 @@ function GameState:update(dt)
 end
 
 function GameState:switch(state_name)
+    if self.current and self.current.leave then
+        self.current:leave()
+    end
+
     local new_state = self.states[state_name]
     if new_state then
         self.current = new_state
         self.current.gamestate = self
+
+        if self.current and self.current.enter then
+            self.current:enter()
+        end
+
         if self.current.load then
             self.current:load()
         end
