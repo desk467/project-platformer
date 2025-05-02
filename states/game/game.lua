@@ -1,12 +1,13 @@
+-- imports
+local bump      = require('bump')
 local World     = require('states.game.world')
 local levels    = require('states.game.levels')
 local Events    = require('states.game.events')
 local EventBus  = require('states.game.event_bus')
-local bump = require('core.bump')
 
 local Game = {}
 
-Game.currentLevel = 1
+Game.current_level = 1
 
 function Game:enter()
     EventBus:on(Events.COIN_COLLECTED, function(coin)
@@ -29,10 +30,10 @@ function Game:leave()
 end
 
 function Game:load(levelIndex)
-    self.currentLevel = levelIndex or self.currentLevel
-    local levelData = levels[self.currentLevel]
+    self.current_level = levelIndex or self.current_level
+    local level_data = levels[self.current_level]
 
-    self.world = World:new(levelData)
+    self.world = World:new(level_data)
 end
 
 function Game:draw()
@@ -89,10 +90,10 @@ function Game:onPlayerDied()
 end
 
 function Game:onPlayerWon()
-    self.currentLevel = self.currentLevel + 1
-    if levels[self.currentLevel] then
-        local levelData = levels[self.currentLevel]
-        self.world = World:new(levelData)
+    self.current_level = self.current_level + 1
+    if levels[self.current_level] then
+        local level_data = levels[self.current_level]
+        self.world = World:new(level_data)
     else
         self.gamestate:switch('win')
     end

@@ -1,14 +1,13 @@
-local Entity   = require('states.game.ecs.entity')
-local Position = require('states.game.ecs.components.position')
-local Drawable = require('states.game.ecs.components.drawable')
-local Active = require('states.game.ecs.components.Active')
+-- imports
+local Entity     = require('core.ecs.entity')
+local components = require('core.components')
 
 local function create_gate(x, y)
     local gate = Entity:new("gate")
 
-    gate:add("position", Position(x, y))
-    gate:add("active", Active(false))
-    gate:add("drawable", Drawable({40/255, 200/255, 100/255}))
+    gate:add("position", components.Position(x, y))
+    gate:add("active", components.Active(false))
+    gate:add("drawable", components.Drawable({40/255, 200/255, 100/255}))
 
     return gate
 end

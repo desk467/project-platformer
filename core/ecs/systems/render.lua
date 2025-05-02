@@ -2,7 +2,6 @@ local RenderSystem = {}
 
 function RenderSystem:draw(entities)
     for _, entity in ipairs(entities) do
-
         if entity:has("active") and not entity:get('active') then
             goto continue
         end
@@ -17,6 +16,15 @@ function RenderSystem:draw(entities)
             else
                 love.graphics.rectangle("fill", pos.x, pos.y + yOffset, drawable.size.width, drawable.size.height)
             end
+        end
+
+        if entity:has("position") and entity:has("writable") then
+            local pos = entity:get("position")
+            local writable =  entity:get("writable")
+
+            love.graphics.setColor(writable.color)
+            love.graphics.setFont(writable.font)
+            love.graphics.print(writable.text, pos.x, pos.y)
         end
 
         ::continue::

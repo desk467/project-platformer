@@ -1,6 +1,6 @@
-local bump = require('core.bump')
-local EventBus = require('states.game.event_bus')
-local Events = require('states.game.events')
+local EventBus  = require('states.game.event_bus')
+local Events    = require('states.game.events')
+local bump      = require('bump')
 
 local MovementSystem = {}
 

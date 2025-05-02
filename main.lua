@@ -1,16 +1,15 @@
--- core
+-- imports
 local Input      = require('core.input')
 local GameState  = require('core.gamestate')
 
 local state
 function love.load()
-    Input:load()
     state = GameState.new({
-        menu = require('states.menu'),
-        game = require('states.game'),
-        win = require('states.win'),
-        gameover = require('states.gameover'),
-        help = require('states.help')
+        menu        = require('states.menu'),
+        game        = require('states.game'),
+        win         = require('states.win'),
+        gameover    = require('states.gameover'),
+        help        = require('states.help')
     }, "menu")
 end
 
@@ -19,7 +18,6 @@ function love.draw()
 end
 
 function love.update(dt)
-    Input:update(dt)
     state:update(dt)
 end
 

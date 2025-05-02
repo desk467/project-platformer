@@ -1,12 +1,12 @@
-local Entity   = require('states.game.ecs.entity')
-local Position = require('states.game.ecs.components.position')
-local Drawable = require('states.game.ecs.components.drawable')
+-- imports
+local Entity     = require('core.ecs.entity')
+local components = require('core.components')
 
 local function create_coin(x, y)
     local coin = Entity:new("coin")
 
-    coin:add("position", Position(x, y))
-    coin:add("drawable", Drawable({220/255, 120/255, 10/255}, "circle", {radius = 10}))
+    coin:add("position", components.Position(x, y))
+    coin:add("drawable", components.Drawable({220/255, 120/255, 10/255}, "circle", {radius = 10}))
 
     -- TOOO: Transformar em componente
     coin.translate_y = 0

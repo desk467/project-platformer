@@ -1,29 +1,15 @@
-local font = require('font')
+-- imports
+local font       = require('font')
+local Entity     = require('core.ecs.entity')
+local components = require('core.components')
 
-local Title = {
-    id = 'T',
-    category = 'title'
-}
+local function create_title(x, y, color, font, text)
+    local title = Entity:new("title")
 
-Title.__index = Title
+    title:add("position", components.Position(x, y))
+    title:add("writable", components.Writable(color, font, text))
 
-
-function Title:new(x, y, text)
-    local instance = setmetatable({}, Title)
-    instance.x = x
-    instance.y = y
-    instance.text = text
-    return instance
+    return title
 end
 
-function Title:draw()
-    love.graphics.setColor(0, 0, 0)
-
-    love.graphics.setFont(font.get("large"))
-    local font = love.graphics.getFont()
-    local textWidth = font:getWidth("1-1")
-
-    love.graphics.print(self.text, self.x - (textWidth / 2), self.y)
-end
-
-return Title
+return create_title

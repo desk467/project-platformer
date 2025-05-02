@@ -1,17 +1,16 @@
-local Entity   = require('states.game.ecs.entity')
-local Position = require('states.game.ecs.components.position')
-local Velocity = require('states.game.ecs.components.velocity')
-local Drawable = require('states.game.ecs.components.drawable')
-local EventBus = require('states.game.event_bus')
-local Events   = require('states.game.events')
-local Input    = require('core.input')
+-- imports
+local Input        = require('core.input')
+local components   = require('core.components')
+local Entity       = require('core.ecs.entity')
+local Events       = require('states.game.events')
+local EventBus     = require('states.game.event_bus')
 
 local function create_player(x, y)
     local player = Entity:new("player")
 
-    player:add("position", Position(x, y))
-    player:add("velocity", Velocity(0, 0))
-    player:add("drawable", Drawable({50/255, 100/255, 200/255}))
+    player:add("position", components.Position(x, y))
+    player:add("velocity", components.Velocity(0, 0))
+    player:add("drawable", components.Drawable({50/255, 100/255, 200/255}))
 
     -- TODO: transformar em componente
     player.jump_distance = 400

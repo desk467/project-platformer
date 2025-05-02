@@ -1,12 +1,12 @@
-local Entity   = require('states.game.ecs.entity')
-local Position = require('states.game.ecs.components.position')
-local Drawable = require('states.game.ecs.components.drawable')
+-- imports
+local Entity     = require('core.ecs.entity')
+local components = require('core.components')
 
 local function create_fire(x, y)
     local fire = Entity:new("fire")
 
-    fire:add("position", Position(x, y))
-    fire:add("drawable", Drawable({200/255, 40/255, 40/255}))
+    fire:add("position", components.Position(x, y))
+    fire:add("drawable", components.Drawable({200/255, 40/255, 40/255}))
 
     return fire
 end

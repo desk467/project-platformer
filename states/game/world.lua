@@ -1,12 +1,7 @@
-local bump = require('core.bump')
-
+-- imports
+local bump          = require('bump')
+local systems       = require('core.systems')
 local EntityFactory = require('states.game.entity_factory')
-
-local CoinAnimationSystem = require('states.game.ecs.systems.coin_animation_system')
-local MovementSystem = require('states.game.ecs.systems.movement_system')
-local RenderSystem = require('states.game.ecs.systems.render_system')
-local InputSystem = require('states.game.ecs.systems.input_system')
-local JumpSystem = require('states.game.ecs.systems.jump_system')
 
 local World = {}
 World.__index = World
@@ -30,6 +25,7 @@ function World:load(levelData)
             if entity then
                 local pos = entity:get("position")
 
+                -- TODO: Refactor
                 if category == 'player' then
                     table.insert(self.entities, entity)
                     self.bump_world:add(entity, pos.x, pos.y, 32, 32)
@@ -45,7 +41,7 @@ function World:load(levelData)
                     table.insert(self.entities, entity)
                     self.bump_world:add(entity, pos.x, pos.y, 16, 16)
                 elseif category == 'title' then
-                    self.title = entity
+                    table.insert(self.entities, entity)
                 end
             end
         end
@@ -53,18 +49,16 @@ function World:load(levelData)
 end
 
 function World:update(dt)
-    InputSystem:update(self.entities, dt)
-    MovementSystem:update(self.entities, self.bump_world, dt)
-    JumpSystem:update(self.entities, dt)
-    CoinAnimationSystem:update(self.entities, dt)
+    systems.Input:update(self.entities, dt)
+    systems.Movement:update(self.entities, self.bump_world, dt)
+    systems.Jump:update(self.entities, dt)
+    systems.CoinAnimation:update(self.entities, dt)
 end
 
 function World:draw()
     love.graphics.setBackgroundColor({255, 255, 255})
 
-    RenderSystem:draw(self.entities)
-
-    if self.title then self.title:draw() end
+    systems.Render:draw(self.entities)
 end
 
 return World

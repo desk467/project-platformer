@@ -1,20 +1,14 @@
 local Input = {
     keysDown = {},
     bindings = {
-        jump = {"space", "up", "w"},
-        move_left = {"left", "a"},
-        move_up = {"up", "w"},
-        move_right = {"right", "d"},
-        move_down = {"down", "s"},
-        confirm = {"return", "space"}
+        move_up         = {"up", "w"},
+        move_left       = {"left", "a"},
+        move_down       = {"down", "s"},
+        move_right      = {"right", "d"},
+        jump            = {"space", "up", "w"},
+        confirm         = {"return", "space"}
     }
 }
-
-function Input:load()
-end
-
-function Input:update(dt)
-end
 
 function Input:keypressed(key)
     self.keysDown[key] = true
@@ -35,7 +29,6 @@ function Input:isDown(action)
     end
 
     -- TODO: Implementar Logica para Controle
-
     return false
 end
 

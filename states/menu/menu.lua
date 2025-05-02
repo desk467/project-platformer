@@ -1,12 +1,8 @@
--- entities
+-- imports
 local Title         = require('states.menu.entities.title')
 local MenuItems     = require('states.menu.entities.menu_items')
 
 local Menu = {}
-
-function Menu:load()
-    -- Inicializa recursos do estado
-end
 
 function Menu:draw()
     love.graphics.setBackgroundColor({0, 0, 0})
