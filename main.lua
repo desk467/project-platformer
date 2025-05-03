@@ -1,3 +1,6 @@
+-- debugging
+if arg[#arg] == "vsc_debug" then require("lldebugger").start() end
+
 -- imports
 local Input      = require('core.input')
 local GameState  = require('core.gamestate')

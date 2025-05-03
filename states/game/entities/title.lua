@@ -1,6 +1,6 @@
 -- imports
 local font       = require('font')
-local Entity     = require('core.ecs.entity')
+local Entity     = require('core.entity')
 local components = require('core.components')
 
 local function create_title(x, y, color, font, text)

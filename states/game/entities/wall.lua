@@ -1,5 +1,5 @@
 -- imports
-local Entity     = require('core.ecs.entity')
+local Entity     = require('core.entity')
 local components = require('core.components')
 
 local function create_wall(x, y)

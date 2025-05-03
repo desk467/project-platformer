@@ -1,5 +1,5 @@
 -- imports
-local bump      = require('bump')
+local bump      = require('vendor.bump.bump')
 local World     = require('states.game.world')
 local levels    = require('states.game.levels')
 local Events    = require('states.game.events')

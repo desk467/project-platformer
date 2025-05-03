@@ -1,7 +1,7 @@
 -- imports
 local Input        = require('core.input')
 local components   = require('core.components')
-local Entity       = require('core.ecs.entity')
+local Entity       = require('core.entity')
 local Events       = require('states.game.events')
 local EventBus     = require('states.game.event_bus')
 

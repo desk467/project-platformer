@@ -1,5 +1,5 @@
 -- imports
-local bump          = require('bump')
+local bump          = require('vendor.bump.bump')
 local systems       = require('core.systems')
 local EntityFactory = require('states.game.entity_factory')
 
